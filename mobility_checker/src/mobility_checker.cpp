@@ -14,10 +14,10 @@ void MobilityChecker::mobilityCallback(const std_msgs::Int64::ConstPtr& msg)
 {
   flag_mobility = msg->data;
   if (flag_mobility) {
-    ROS_WARN_ONCE("Rover is traversing = %i",flag_mobility);
+    ROS_WARN_ONCE("MC:MEssage Received from SF: Rover is traversing = %i",flag_mobility);
   }
   else {
-    ROS_ERROR("ROVER IMMOBILIZATION!  = %i",flag_mobility);
+    ROS_ERROR("MC:Rover is immobile, Sending stop command to state Machine!  = %i",flag_mobility);
     mobility(false);
   }
 }
@@ -28,7 +28,7 @@ void MobilityChecker::mobility(bool flag)
   srv_set_mobility.request.mobility  = flag;
   if (clt_setMobility_.call(srv_set_mobility))
   {
-    ROS_INFO_STREAM("Mobility service called mobility service. Flag is: " << flag);
+    ROS_INFO_STREAM("MC: Called mobility service. Flag is: " << flag);
   }
   else
   {
