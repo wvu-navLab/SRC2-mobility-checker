@@ -1,0 +1,12 @@
+<launch>
+<arg name="robot_namespace" default="/hauler_1"/>
+
+	<remap from="/get_true_pose" to="$(arg robot_namespace)/get_true_pose"/>
+  <node name="pose_update"
+	pkg="pose_update"
+	type="pose_update"
+	respawn="false"
+	output="screen"
+	ns="$(arg robot_namespace)"/>
+
+</launch>
