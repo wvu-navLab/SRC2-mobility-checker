@@ -1,12 +1,10 @@
 <launch>
-<arg name="robot_namespace" default="/excavator_1"/>
+  <group ns="excavator_1">
 
-	<remap from="/get_true_pose" to="$(arg robot_namespace)/get_true_pose"/>
-  <node name="pose_update"
-	pkg="pose_update"
-	type="pose_update"
-	respawn="false"
-	output="screen"
-	ns="$(arg robot_namespace)"/>
+    <node pkg="mobility_checker" name="mobility_checker" type="mobility_checker" output="screen">
+
+    </node>
+
+  </group>
 
 </launch>
