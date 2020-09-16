@@ -8,9 +8,9 @@ project(mobility_checker)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  std_msgs
-  state_machine
+	roscpp
+	std_msgs
+	state_machine
 )
 
 ## System dependencies are found with CMake's conventions
@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pose_update
-  CATKIN_DEPENDS std_msgs state_machine
+	CATKIN_DEPENDS std_msgs state_machine
 #  DEPENDS system_lib
 )
 
@@ -116,8 +116,8 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
  include
-  ~/srcp2-competitors/ros_workspace/install/include
-  ${catkin_INCLUDE_DIRS}
+	~/srcp2-competitors/ros_workspace/install/include
+	${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -137,6 +137,7 @@ include_directories(
 
 add_executable(mobility_checker src/mobility_checker.cpp)
 target_link_libraries(mobility_checker ${catkin_LIBRARIES})
+add_dependencies(waypoint_checker_node ${catkin_EXPORTED_TARGETS})
 # add_dependencies(mobility_checker mobility_checker_generate_messages_cpp)
 
 ## Rename C++ executable without prefix
@@ -184,9 +185,9 @@ target_link_libraries(mobility_checker ${catkin_LIBRARIES})
 
 ## Mark cpp header files for installation
 install(DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.h"
-  PATTERN ".svn" EXCLUDE
+	DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+	FILES_MATCHING PATTERN "*.h"
+	PATTERN ".svn" EXCLUDE
 )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
