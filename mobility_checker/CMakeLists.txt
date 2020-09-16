@@ -137,7 +137,7 @@ include_directories(
 
 add_executable(mobility_checker src/mobility_checker.cpp)
 target_link_libraries(mobility_checker ${catkin_LIBRARIES})
-add_dependencies(waypoint_checker_node ${catkin_EXPORTED_TARGETS})
+add_dependencies(mobility_checker ${catkin_EXPORTED_TARGETS})
 # add_dependencies(mobility_checker mobility_checker_generate_messages_cpp)
 
 ## Rename C++ executable without prefix
