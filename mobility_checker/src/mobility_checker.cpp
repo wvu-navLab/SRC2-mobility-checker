@@ -4,7 +4,6 @@
 MobilityChecker::MobilityChecker(ros::NodeHandle &nh) :nh_(nh)
 {
 
-
   mobility_sub = nh_.subscribe("/state_machine/mobility_scout", 1, &MobilityChecker::mobilityCallback, this);
   clt_setMobility_ =nh_.serviceClient<state_machine::SetMobility>("/state_machine/mobility_service_scout");
 
